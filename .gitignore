@@ -8,3 +8,10 @@ Thumbs.db
 
 .rbenv-version
 .rvmrc
+
+public/
+node_modules/
+.deploy*/
+db.json
+*.log
+
