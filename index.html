@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Market-Prediction" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/11/Market-Prediction/" class="article-date">
+  <time datetime="2020-06-11T12:45:35.000Z" itemprop="datePublished">2020-06-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/11/Market-Prediction/">Forex market prediction using neural networks</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Tensorflow is used to predict future price values on the forex market.</p>
+<h2 id="Input-data"><a href="#Input-data" class="headerlink" title="Input data"></a>Input data</h2><p>Input data is acquired via the MT5 terminal.</p>
+<h2 id="Imports"><a href="#Imports" class="headerlink" title="Imports"></a>Imports</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, division, print_function, unicode_literals</span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line">warnings.filterwarnings(<span class="string">"ignore"</span>)</span><br><span class="line"><span class="keyword">import</span> pathlib</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow <span class="keyword">import</span> keras</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras <span class="keyword">import</span> layers</span><br><span class="line">print(<span class="string">"Tensorflow Version : "</span> + tf.__version__)</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line">print(<span class="string">"Python Version : "</span> + sys.version)</span><br><span class="line"><span class="keyword">from</span> tensorflow.python.client <span class="keyword">import</span> device_lib</span><br><span class="line">print(device_lib.list_local_devices())</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> preprocessing</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> numpy.random <span class="keyword">import</span> seed</span><br><span class="line"><span class="keyword">import</span> winsound</span><br><span class="line"><span class="keyword">import</span> os</span><br></pre></td></tr></table></figure>
+
+<h2 id="AI-Model-Save"><a href="#AI-Model-Save" class="headerlink" title="AI Model Save"></a>AI Model Save</h2><p>These variables will allows the AI model to be saved.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">checkpoint_path = <span class="string">"C:\\Users\\41507\\AppData\\Roaming\\MetaQuotes\\Terminal\\158904DFD898D640E9B813D10F9EB397\\MQL5\\Files\\ModelClose\\EURUSD\\modelClose.ckpt"</span></span><br><span class="line">checkpoint_dir = os.path.dirname(checkpoint_path)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Data-Import"><a href="#Data-Import" class="headerlink" title="Data Import"></a>Data Import</h2><p>Import the data from csv.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'C:\\Users\\41507\\AppData\\Roaming\\MetaQuotes\\Terminal\\158904DFD898D640E9B813D10F9EB397\\MQL5\\Files\\EUR_USD_Test_H1.csv'</span>, header=<span class="number">0</span>, delimiter=<span class="string">r"\s+"</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Data-Shape"><a href="#Data-Shape" class="headerlink" title="Data Shape"></a>Data Shape</h2><p>Look at the shape of the data.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(df.shape)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Clean-Data"><a href="#Clean-Data" class="headerlink" title="Clean Data"></a>Clean Data</h2><p>Clean the data and create columns for looking back.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">df.columns = df.columns.str.replace(<span class="string">"&lt;"</span>, <span class="string">""</span>)</span><br><span class="line">df.columns = df.columns.str.replace(<span class="string">"&gt;"</span>, <span class="string">""</span>)</span><br><span class="line"><span class="comment"># Extract date features</span></span><br><span class="line">df[<span class="string">'DATE'</span>] = df[<span class="string">'DATE'</span>].astype(<span class="string">'datetime64[ns]'</span>)</span><br><span class="line">df[<span class="string">'day_of_year'</span>] = df[<span class="string">'DATE'</span>].dt.dayofyear</span><br><span class="line">df[<span class="string">'year'</span>] = df[<span class="string">'DATE'</span>].dt.year </span><br><span class="line"></span><br><span class="line"><span class="comment">#Save Date in another dataframe for later use and then delete</span></span><br><span class="line">dfDate = pd.DataFrame(df, columns=[<span class="string">'DATE'</span>, <span class="string">'TIME'</span>])</span><br><span class="line"><span class="keyword">del</span> df[<span class="string">'DATE'</span>]</span><br><span class="line"></span><br><span class="line">df[<span class="string">'TIME'</span>] = df[<span class="string">'TIME'</span>].astype(<span class="string">'datetime64[ns]'</span>)</span><br><span class="line">df[<span class="string">'hour_of_day'</span>] = df[<span class="string">'TIME'</span>].dt.hour</span><br><span class="line"></span><br><span class="line"><span class="comment">#Save Time in another dataframe for later use and then delete</span></span><br><span class="line">dfTime = pd.DataFrame(df, columns=[<span class="string">'TIME'</span>])</span><br><span class="line"><span class="keyword">del</span> df[<span class="string">'TIME'</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Add column minmaxdiff</span></span><br><span class="line"><span class="comment">#df['score_diff'] = df['HIGH'].sub(df['LOW'], axis = 0)</span></span><br><span class="line"><span class="comment">#df['min_max_next'] = (df['HIGH']+df['LOW'])/2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Add columns for previous candles</span></span><br><span class="line">df[<span class="string">'OPEN1'</span>] = df[<span class="string">'OPEN'</span>].shift(<span class="number">1</span>)</span><br><span class="line">df[<span class="string">'HIGH1'</span>] = df[<span class="string">'HIGH'</span>].shift(<span class="number">1</span>)</span><br><span class="line">df[<span class="string">'LOW1'</span>] = df[<span class="string">'LOW'</span>].shift(<span class="number">1</span>)</span><br><span class="line">df[<span class="string">'CLOSE1'</span>] = df[<span class="string">'CLOSE'</span>].shift(<span class="number">1</span>)</span><br><span class="line">df[<span class="string">'OPEN2'</span>] = df[<span class="string">'OPEN'</span>].shift(<span class="number">2</span>)</span><br><span class="line">df[<span class="string">'HIGH2'</span>] = df[<span class="string">'HIGH'</span>].shift(<span class="number">2</span>)</span><br><span class="line">df[<span class="string">'LOW2'</span>] = df[<span class="string">'LOW'</span>].shift(<span class="number">2</span>)</span><br><span class="line">df[<span class="string">'CLOSE2'</span>] = df[<span class="string">'CLOSE'</span>].shift(<span class="number">2</span>)</span><br><span class="line">df[<span class="string">'OPEN3'</span>] = df[<span class="string">'OPEN'</span>].shift(<span class="number">3</span>)</span><br><span class="line">df[<span class="string">'HIGH3'</span>] = df[<span class="string">'HIGH'</span>].shift(<span class="number">3</span>)</span><br><span class="line">df[<span class="string">'LOW3'</span>] = df[<span class="string">'LOW'</span>].shift(<span class="number">3</span>)</span><br><span class="line">df[<span class="string">'CLOSE3'</span>] = df[<span class="string">'CLOSE'</span>].shift(<span class="number">3</span>)</span><br><span class="line">df[<span class="string">'OPEN4'</span>] = df[<span class="string">'OPEN'</span>].shift(<span class="number">4</span>)</span><br><span class="line">df[<span class="string">'HIGH4'</span>] = df[<span class="string">'HIGH'</span>].shift(<span class="number">4</span>)</span><br><span class="line">df[<span class="string">'LOW4'</span>] = df[<span class="string">'LOW'</span>].shift(<span class="number">4</span>)</span><br><span class="line">df[<span class="string">'CLOSE4'</span>] = df[<span class="string">'CLOSE'</span>].shift(<span class="number">4</span>)</span><br><span class="line">df[<span class="string">'OPEN5'</span>] = df[<span class="string">'OPEN'</span>].shift(<span class="number">5</span>)</span><br><span class="line">df[<span class="string">'HIGH5'</span>] = df[<span class="string">'HIGH'</span>].shift(<span class="number">5</span>)</span><br><span class="line">df[<span class="string">'LOW5'</span>] = df[<span class="string">'LOW'</span>].shift(<span class="number">5</span>)</span><br><span class="line">df[<span class="string">'CLOSE5'</span>] = df[<span class="string">'CLOSE'</span>].shift(<span class="number">6</span>)</span><br><span class="line">df[<span class="string">'OPEN6'</span>] = df[<span class="string">'OPEN'</span>].shift(<span class="number">6</span>)</span><br><span class="line">df[<span class="string">'HIGH6'</span>] = df[<span class="string">'HIGH'</span>].shift(<span class="number">6</span>)</span><br><span class="line">df[<span class="string">'LOW6'</span>] = df[<span class="string">'LOW'</span>].shift(<span class="number">6</span>)</span><br><span class="line">df[<span class="string">'CLOSE6'</span>] = df[<span class="string">'CLOSE'</span>].shift(<span class="number">6</span>)</span><br><span class="line">df[<span class="string">'OPEN7'</span>] = df[<span class="string">'OPEN'</span>].shift(<span class="number">7</span>)</span><br><span class="line">df[<span class="string">'HIGH7'</span>] = df[<span class="string">'HIGH'</span>].shift(<span class="number">7</span>)</span><br><span class="line">df[<span class="string">'LOW7'</span>] = df[<span class="string">'LOW'</span>].shift(<span class="number">7</span>)</span><br><span class="line">df[<span class="string">'CLOSE7'</span>] = df[<span class="string">'CLOSE'</span>].shift(<span class="number">7</span>)</span><br><span class="line">df[<span class="string">'OPEN8'</span>] = df[<span class="string">'OPEN'</span>].shift(<span class="number">8</span>)</span><br><span class="line">df[<span class="string">'HIGH8'</span>] = df[<span class="string">'HIGH'</span>].shift(<span class="number">8</span>)</span><br><span class="line">df[<span class="string">'LOW8'</span>] = df[<span class="string">'LOW'</span>].shift(<span class="number">8</span>)</span><br><span class="line">df[<span class="string">'CLOSE8'</span>] = df[<span class="string">'CLOSE'</span>].shift(<span class="number">8</span>)</span><br><span class="line">df[<span class="string">'OPEN9'</span>] = df[<span class="string">'OPEN'</span>].shift(<span class="number">9</span>)</span><br><span class="line">df[<span class="string">'HIGH9'</span>] = df[<span class="string">'HIGH'</span>].shift(<span class="number">9</span>)</span><br><span class="line">df[<span class="string">'LOW9'</span>] = df[<span class="string">'LOW'</span>].shift(<span class="number">9</span>)</span><br><span class="line">df[<span class="string">'CLOSE9'</span>] = df[<span class="string">'CLOSE'</span>].shift(<span class="number">9</span>)</span><br><span class="line">df.fillna(<span class="number">0</span>, inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Add-Label"><a href="#Add-Label" class="headerlink" title="Add Label"></a>Add Label</h2><p>This is the value that will be predicted. The value is the close value of the next bar.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">step = <span class="number">-1</span></span><br><span class="line">df[<span class="string">'prediction_output'</span>] = df[<span class="string">'CLOSE'</span>].shift(step)</span><br></pre></td></tr></table></figure>
+<h2 id="Split-the-data-into-train-and-test"><a href="#Split-the-data-into-train-and-test" class="headerlink" title="Split the data into train and test"></a>Split the data into train and test</h2><p>80% of the data will be used for training and 20% will be used for testing.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="number">80</span></span><br><span class="line">train_dataset = df.head(int(len(df)*(n/<span class="number">100</span>)))</span><br><span class="line">test_dataset = df.drop(train_dataset.index)</span><br><span class="line">dfDate = dfDate.drop(train_dataset.index)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Split-features-from-labels"><a href="#Split-features-from-labels" class="headerlink" title="Split features from labels"></a>Split features from labels</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">train_labels = train_dataset.pop(<span class="string">'prediction_output'</span>)</span><br><span class="line">test_labels = test_dataset.pop(<span class="string">'prediction_output'</span>)</span><br><span class="line"><span class="comment"># Compare the shapes</span></span><br><span class="line">print(train_labels.shape)</span><br><span class="line">print(test_labels.shape)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Normalize-the-data"><a href="#Normalize-the-data" class="headerlink" title="Normalize the data"></a>Normalize the data</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">norm</span><span class="params">(x)</span>:</span></span><br><span class="line">  <span class="keyword">return</span> (x - train_stats[<span class="string">'mean'</span>]) / train_stats[<span class="string">'std'</span>]</span><br><span class="line">normed_train_data = norm(train_dataset)</span><br><span class="line"><span class="keyword">del</span> normed_train_data[<span class="string">'prediction_output'</span>]</span><br><span class="line">normed_test_data = norm(test_dataset)</span><br><span class="line"><span class="keyword">del</span> normed_test_data[<span class="string">'prediction_output'</span>]</span><br></pre></td></tr></table></figure>
+
+<h2 id="Build-the-model"><a href="#Build-the-model" class="headerlink" title="Build the model"></a>Build the model</h2><p>The model has 5 layers and a learning rate of 0.003.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">build_model</span><span class="params">()</span>:</span></span><br><span class="line">  model = keras.Sequential([</span><br><span class="line">    layers.Dense(<span class="number">64</span>, activation=tf.nn.relu, input_shape=[len(normed_train_data.keys())]), </span><br><span class="line">    layers.Dense(<span class="number">128</span>, activation=tf.nn.relu),       </span><br><span class="line">    layers.Dense(<span class="number">128</span>, activation=tf.nn.relu), </span><br><span class="line">    layers.Dense(<span class="number">64</span>, activation=tf.nn.relu),    </span><br><span class="line">    layers.Dense(<span class="number">1</span>)</span><br><span class="line">  ])</span><br><span class="line"></span><br><span class="line">  optimizer = tf.keras.optimizers.RMSprop(learning_rate=<span class="number">0.003</span>, rho=<span class="number">0.9</span>)</span><br><span class="line"></span><br><span class="line">  model.compile(loss=<span class="string">'mean_squared_error'</span>,</span><br><span class="line">                optimizer=optimizer,</span><br><span class="line">                metrics=[<span class="string">'mean_absolute_error'</span>, <span class="string">'mean_squared_error'</span>])</span><br><span class="line">  <span class="keyword">return</span> model</span><br></pre></td></tr></table></figure>
+
+<h2 id="Train-the-model"><a href="#Train-the-model" class="headerlink" title="Train the model"></a>Train the model</h2><p>The model training has 1000 epochs and a patience value of 100.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">model = build_model()</span><br><span class="line">model.summary()</span><br><span class="line"><span class="comment"># Display training progress by printing a single dot for each completed epoch</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">PrintDot</span><span class="params">(keras.callbacks.Callback)</span>:</span></span><br><span class="line">  <span class="function"><span class="keyword">def</span> <span class="title">on_epoch_end</span><span class="params">(self, epoch, logs)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> epoch % <span class="number">100</span> == <span class="number">0</span>: print(<span class="string">''</span>)</span><br><span class="line">    print(<span class="string">'.'</span>, end=<span class="string">''</span>)</span><br><span class="line"></span><br><span class="line">EPOCHS = <span class="number">1000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The patience parameter is the amount of epochs to check for improvement</span></span><br><span class="line">early_stop = keras.callbacks.EarlyStopping(monitor=<span class="string">'val_loss'</span>, patience=<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a callback that saves the model's weights</span></span><br><span class="line">cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path,</span><br><span class="line">                                                 save_weights_only=<span class="literal">True</span>,</span><br><span class="line">                                                 verbose=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">history = model.fit(normed_train_data, train_labels, epochs=EPOCHS,</span><br><span class="line">                    validation_split = <span class="number">0.2</span>, verbose=<span class="number">0</span>, callbacks=[early_stop, PrintDot(), cp_callback])</span><br><span class="line">hist = pd.DataFrame(history.history)</span><br><span class="line">hist[<span class="string">'epoch'</span>] = history.epoch</span><br><span class="line">hist.tail()</span><br></pre></td></tr></table></figure>
+
+<h2 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">loss, mae, mse = model.evaluate(normed_test_data, test_labels, verbose=<span class="number">0</span>)</span><br><span class="line">print(<span class="string">"Testing set Mean Abs Error: &#123;:6.4f&#125;"</span>.format(mae))</span><br><span class="line">print(<span class="string">"Testing set Mean Squared Error: &#123;:6.4f&#125;"</span>.format(mse))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Testing set Mean Abs Error: 0.0011</span><br><span class="line">Testing set Mean Squared Error: 0.0002</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># plot metrics</span></span><br><span class="line">plt.plot(history.history[<span class="string">'mean_squared_error'</span>])</span><br><span class="line">plt.plot(history.history[<span class="string">'mean_absolute_error'</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/forex-prediction-results.png" alt="forex-prediction-results"></p>
+<p>The model can predict the closing price of the next bar with a MAE(mean absolute error) of 11 pips.<br>Cross validation will make the result more robust.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/06/11/Market-Prediction/" data-id="ckbaveui40000ysmuc0ou8qvx" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Edge-AI" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/06/Edge-AI/" class="article-date">
+  <time datetime="2020-02-06T09:40:09.000Z" itemprop="datePublished">2020-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/06/Edge-AI/">Edge AI</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>Edge AI</li>
+<li>Run pre-trained AI models on edge devices.</li>
+<li>In real time.</li>
+<li>Compatible with Raspberry PI and mobile phones.</li>
+<li>Not dependant on centralized server. </li>
+</ul>
+<div class="video-container"><iframe src="https://www.youtube.com/embed/bKIzpNjLrzg" frameborder="0" loading="lazy" allowfullscreen></iframe></div>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/06/Edge-AI/" data-id="ck6ajw99800000r2d9fqz7e17" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/06/hello-world/" class="article-date">
+  <time datetime="2020-02-06T09:30:09.000Z" itemprop="datePublished">2020-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/06/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/02/06/hello-world/" data-id="ck6ajtme30000mh2d1o6acdoy" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/06/11/Market-Prediction/">Forex market prediction using neural networks</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/06/Edge-AI/">Edge AI</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/06/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
