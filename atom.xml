@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Freek Nortier&#39;s Blog</title>
-  <icon>https://freeknortier.github.io/icon.png</icon>
+  <icon>http://yoursite.com/icon.png</icon>
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="https://freeknortier.github.io/"/>
+  <link href="http://yoursite.com/"/>
   <updated>2020-06-11T16:43:52.783Z</updated>
-  <id>https://freeknortier.github.io/</id>
+  <id>http://yoursite.com/</id>
   
   <author>
     <name>Freek Nortier</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Forex market prediction using neural networks</title>
-    <link href="https://freeknortier.github.io/2020/06/11/Market-Prediction/"/>
-    <id>https://freeknortier.github.io/2020/06/11/Market-Prediction/</id>
+    <link href="http://yoursite.com/2020/06/11/Market-Prediction/"/>
+    <id>http://yoursite.com/2020/06/11/Market-Prediction/</id>
     <published>2020-06-11T12:45:35.000Z</published>
     <updated>2020-06-11T16:43:52.783Z</updated>
     
@@ -42,8 +42,8 @@
   
   <entry>
     <title>Edge AI</title>
-    <link href="https://freeknortier.github.io/2020/02/06/Edge-AI/"/>
-    <id>https://freeknortier.github.io/2020/02/06/Edge-AI/</id>
+    <link href="http://yoursite.com/2020/02/06/Edge-AI/"/>
+    <id>http://yoursite.com/2020/02/06/Edge-AI/</id>
     <published>2020-02-06T09:40:09.000Z</published>
     <updated>2020-02-06T09:42:41.833Z</updated>
     
@@ -69,8 +69,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="https://freeknortier.github.io/2020/02/06/hello-world/"/>
-    <id>https://freeknortier.github.io/2020/02/06/hello-world/</id>
+    <link href="http://yoursite.com/2020/02/06/hello-world/"/>
+    <id>http://yoursite.com/2020/02/06/hello-world/</id>
     <published>2020-02-06T09:30:09.000Z</published>
     <updated>2020-06-11T15:58:27.439Z</updated>
     
