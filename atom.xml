@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
   <title>Freek Nortier&#39;s Blog</title>
-  <icon>http://yoursite.com/icon.png</icon>
+  <icon>http://example.com/icon.png</icon>
   
-  <link href="/atom.xml" rel="self"/>
+  <link href="http://example.com/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
-  <updated>2020-06-11T16:43:52.783Z</updated>
-  <id>http://yoursite.com/</id>
+  <link href="http://example.com/"/>
+  <updated>2023-07-21T07:38:17.142Z</updated>
+  <id>http://example.com/</id>
   
   <author>
     <name>Freek Nortier</name>
@@ -17,74 +17,84 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Forex market prediction using neural networks</title>
-    <link href="http://yoursite.com/2020/06/11/Market-Prediction/"/>
-    <id>http://yoursite.com/2020/06/11/Market-Prediction/</id>
+    <title>Time series prediction using neural networks</title>
+    <link href="http://example.com/2020/06/11/Time-Series-Prediction/"/>
+    <id>http://example.com/2020/06/11/Time-Series-Prediction/</id>
     <published>2020-06-11T12:45:35.000Z</published>
-    <updated>2020-06-11T16:43:52.783Z</updated>
+    <updated>2023-07-21T07:38:17.142Z</updated>
     
-    <summary type="html">
     
       
       
         
         
-          &lt;p&gt;Tensorflow is used to predict future price values on the forex market.&lt;/p&gt;
-&lt;h2 id=&quot;Input-data&quot;&gt;&lt;a href=&quot;#Input-data&quot; class=&quot;headerlink&quot;
+    <summary type="html">&lt;p&gt;Tensorflow is used to predict future time series values.&lt;/p&gt;
+&lt;h2 id=&quot;Input-data&quot;&gt;&lt;a href=&quot;#Input-data&quot; class=&quot;headerlink&quot; title=&quot;Input</summary>
         
       
     
-    </summary>
     
     
+    
+    <category term="Time Series" scheme="http://example.com/tags/Time-Series/"/>
+    
+    <category term="Machine Learning" scheme="http://example.com/tags/Machine-Learning/"/>
+    
+    <category term="Python" scheme="http://example.com/tags/Python/"/>
+    
+    <category term="Tensorflow" scheme="http://example.com/tags/Tensorflow/"/>
     
   </entry>
   
   <entry>
     <title>Edge AI</title>
-    <link href="http://yoursite.com/2020/02/06/Edge-AI/"/>
-    <id>http://yoursite.com/2020/02/06/Edge-AI/</id>
+    <link href="http://example.com/2020/02/06/Edge-AI/"/>
+    <id>http://example.com/2020/02/06/Edge-AI/</id>
     <published>2020-02-06T09:40:09.000Z</published>
-    <updated>2020-02-06T09:42:41.833Z</updated>
+    <updated>2023-07-21T07:39:34.258Z</updated>
     
-    <summary type="html">
     
       
       
         
         
-          &lt;ul&gt;
+    <summary type="html">&lt;ul&gt;
 &lt;li&gt;Edge AI&lt;/li&gt;
 &lt;li&gt;Run pre-trained AI models on edge devices.&lt;/li&gt;
 &lt;li&gt;In real time.&lt;/li&gt;
-&lt;li&gt;Compatible with Raspberry PI and
+&lt;li&gt;Compatible with Raspberry PI and</summary>
         
       
     
-    </summary>
     
     
+    
+    <category term="Edge A.I." scheme="http://example.com/tags/Edge-A-I/"/>
+    
+    <category term="Computer Vision" scheme="http://example.com/tags/Computer-Vision/"/>
+    
+    <category term="Android" scheme="http://example.com/tags/Android/"/>
+    
+    <category term="Tensorflow Light" scheme="http://example.com/tags/Tensorflow-Light/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2020/02/06/hello-world/"/>
-    <id>http://yoursite.com/2020/02/06/hello-world/</id>
+    <link href="http://example.com/2020/02/06/hello-world/"/>
+    <id>http://example.com/2020/02/06/hello-world/</id>
     <published>2020-02-06T09:30:09.000Z</published>
-    <updated>2020-06-11T15:58:27.439Z</updated>
+    <updated>2023-07-21T07:02:17.085Z</updated>
     
-    <summary type="html">
     
       
       
         
         
-          &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
         
       
     
-    </summary>
     
     
     
