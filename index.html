@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-34723692-3', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <title>Data Science Insights</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Data Science Insights">
+<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:site_name" content="Data Science Insights">
+<meta property="og:locale" content="en_US">
+<meta property="article:author" content="Freek Nortier">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Data Science Insights" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 8.1.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Data Science Insights</a>
+        <!-- <h1>Test text</h1> -->
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+        <a class="main-nav-link" href="/"
+          >Home</a
+        >
+        
+        <a class="main-nav-link" href="/archives"
+          >Archives</a
+        >
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <a
+          id="nav-rss-link"
+          class="nav-icon"
+          href="/atom.xml"
+          title="RSS Feed"
+        ></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap"><form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form></div>
+    </div>
+  </div>
+  
+
+  <script>
+    // import * as PIXI from "./js/pixi.min.js";
+    //var getTest = 777;
+    //console.log(getTest);
+  </script>
+</header>
+
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Limits-and-Continuity-Fundamentals" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2026/03/10/Limits-and-Continuity-Fundamentals/" class="article-date">
+  <time datetime="2026-03-10T08:00:00.000Z" itemprop="datePublished">2026-03-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2026/03/10/Limits-and-Continuity-Fundamentals/">Limits and Continuity Fundamentals</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <script>
+window.MathJax = {
+  tex: {
+    inlineMath: [['$','$'], ['\\(','\\)']],
+    displayMath: [['$$','$$'], ['\\[','\\]']]
+  },
+  startup: {
+    ready() {
+      MathJax.startup.defaultReady();
+      MathJax.startup.promise.then(() => MathJax.typesetPromise());
+    }
+  }
+};
+</script>
+<script async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<p>Limits are the foundation on which derivatives and integrals are built. A <strong>limit</strong><br>describes the value a function approaches as its input approaches a point — the<br>function need not be defined at that point. <strong>Continuity</strong> asks whether the<br>function actually attains that value, or whether something fails at the point.</p>
+<h2 id="Definition-of-a-limit"><a href="#Definition-of-a-limit" class="headerlink" title="Definition of a limit"></a>Definition of a limit</h2><p>Consider:</p>
+<p>$f(x) &#x3D; (x^2 - 1) &#x2F; (x - 1)$</p>
+<p>At x &#x3D; 1 the expression is undefined (0&#x2F;0). Evaluating near x &#x3D; 1 — at<br>x &#x3D; 0.99, 0.999, 1.001, 1.01 — the outputs approach 2. The limit is 2,<br>even though f(1) does not exist.</p>
+<p>Three standard approaches to evaluating a limit:</p>
+<ul>
+<li><strong>Graphically</strong> — inspect whether both sides converge to the same value.</li>
+<li><strong>Numerically</strong> — tabulate f(x) for inputs approaching a and observe the trend.</li>
+<li><strong>Algebraically</strong> — simplify using limit laws.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">x_vals = np.array([<span class="number">0.9</span>, <span class="number">0.99</span>, <span class="number">0.999</span>, <span class="number">1.001</span>, <span class="number">1.01</span>, <span class="number">1.1</span>])</span><br><span class="line">f_vals = (x_vals**<span class="number">2</span> - <span class="number">1</span>) / (x_vals - <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> x, y <span class="keyword">in</span> <span class="built_in">zip</span>(x_vals, f_vals):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">f&quot;x=<span class="subst">&#123;x:<span class="number">.3</span>f&#125;</span>, f(x)=<span class="subst">&#123;y:<span class="number">.6</span>f&#125;</span>&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Formal-definition"><a href="#Formal-definition" class="headerlink" title="Formal definition"></a>Formal definition</h2><p>$\lim_{x \to a} f(x) &#x3D; L$ means f(x) can be made arbitrarily close to L by<br>taking x sufficiently close to a, without requiring x &#x3D; a.</p>
+<p>The epsilon-delta formulation makes this precise — see the worked proof below.</p>
+<h2 id="One-sided-limits"><a href="#One-sided-limits" class="headerlink" title="One-sided limits"></a>One-sided limits</h2><ul>
+<li>$\lim_{x \to a^-} f(x)$ — the left-hand limit, approaching a from below.</li>
+<li>$\lim_{x \to a^+} f(x)$ — the right-hand limit, approaching a from above.</li>
+</ul>
+<p>The two-sided limit exists if and only if both one-sided limits exist and are equal.</p>
+<h2 id="Limit-laws"><a href="#Limit-laws" class="headerlink" title="Limit laws"></a>Limit laws</h2><p>When the individual limits exist, they obey the following rules:</p>
+<ul>
+<li>Sum: $\lim(f+g) &#x3D; \lim f + \lim g$</li>
+<li>Difference: $\lim(f-g) &#x3D; \lim f - \lim g$</li>
+<li>Product: $\lim(fg) &#x3D; (\lim f)(\lim g)$</li>
+<li>Quotient: $\lim(f&#x2F;g) &#x3D; (\lim f)&#x2F;(\lim g)$ — provided the denominator limit is nonzero</li>
+<li>Power: $\lim(f^n) &#x3D; (\lim f)^n$</li>
+<li>Composition: if f is continuous at L, then $\lim f(g(x)) &#x3D; f(\lim g(x))$</li>
+</ul>
+<h2 id="Indeterminate-forms"><a href="#Indeterminate-forms" class="headerlink" title="Indeterminate forms"></a>Indeterminate forms</h2><p>Indeterminate forms such as $0&#x2F;0$ or $\infty&#x2F;\infty$ have no immediately<br>obvious value. Standard resolution techniques:</p>
+<ul>
+<li>Factor and cancel</li>
+<li>Multiply by the conjugate</li>
+<li>Apply trigonometric identities</li>
+<li>Use series expansions</li>
+</ul>
+<p><strong>Factor and cancel:</strong></p>
+<p>$\lim_{x \to 1} (x^2 - 1)&#x2F;(x - 1)$</p>
+<p>Since $x^2 - 1 &#x3D; (x - 1)(x + 1)$, for $x \ne 1$ the expression reduces to $x + 1$.</p>
+<p>$\lim_{x \to 1} x + 1 &#x3D; 2$</p>
+<h2 id="Continuity"><a href="#Continuity" class="headerlink" title="Continuity"></a>Continuity</h2><p>A function f is continuous at x &#x3D; a if and only if:</p>
+<ol>
+<li>f(a) is defined</li>
+<li>$\lim_{x \to a} f(x)$ exists</li>
+<li>$\lim_{x \to a} f(x) &#x3D; f(a)$</li>
+</ol>
+<p>If any condition fails, f is discontinuous at a. Discontinuities are classified as:</p>
+<ol>
+<li><strong>Removable</strong> — the limit exists, but the function value is absent or incorrect</li>
+<li><strong>Jump</strong> — left and right limits are finite but unequal</li>
+<li><strong>Infinite</strong> — the function diverges near the point</li>
+<li><strong>Oscillating</strong> — the function does not converge to any value (e.g. $\sin(1&#x2F;x)$ near 0)</li>
+</ol>
+<h2 id="Removable-discontinuity"><a href="#Removable-discontinuity" class="headerlink" title="Removable discontinuity"></a>Removable discontinuity</h2><p>$f(x) &#x3D; (x^2 - 1)&#x2F;(x - 1)$ reduces to $x + 1$ for $x \ne 1$, but f(1) is<br>undefined. There is a removable discontinuity (hole) at (1, 2).</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = np.linspace(<span class="number">0.5</span>, <span class="number">1.5</span>, <span class="number">400</span>)</span><br><span class="line">f = (x**<span class="number">2</span> - <span class="number">1</span>) / (x - <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">plt.plot(x, f, label=<span class="string">&quot;(x^2 - 1)/(x - 1)&quot;</span>)</span><br><span class="line">plt.scatter([<span class="number">1</span>], [<span class="number">2</span>], facecolors=<span class="string">&quot;none&quot;</span>, edgecolors=<span class="string">&quot;red&quot;</span>, s=<span class="number">80</span>, label=<span class="string">&quot;hole at x=1&quot;</span>)</span><br><span class="line">plt.axvline(<span class="number">1</span>, color=<span class="string">&quot;gray&quot;</span>, linestyle=<span class="string">&quot;--&quot;</span>, linewidth=<span class="number">1</span>)</span><br><span class="line">plt.ylim(<span class="number">0</span>, <span class="number">3</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.title(<span class="string">&quot;Removable Discontinuity&quot;</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<script src="https://cdn.plot.ly/plotly-2.30.0.min.js"></script>
+<div id="plot-removable" style="width:100%;height:420px;"></div>
+<script>
+(function () {
+  const x = [];
+  const y = [];
+  for (let i = 0; i <= 200; i++) {
+    const v = 0.5 + i * (1.0 / 200);
+    x.push(v);
+    y.push((v * v - 1) / (v - 1));
+  }
+  const trace = { x, y, mode: "lines", name: "(x^2 - 1)/(x - 1)" };
+  const hole = {
+    x: [1], y: [2],
+    mode: "markers",
+    marker: { size: 10, color: "red", symbol: "circle-open" },
+    name: "hole at x=1"
+  };
+  const layout = {
+    title: "Removable Discontinuity",
+    xaxis: { title: "x" },
+    yaxis: { title: "f(x)", range: [0, 3] },
+    margin: { t: 40, r: 10, b: 40, l: 50 }
+  };
+  Plotly.newPlot("plot-removable", [trace, hole], layout, {displayModeBar: false});
+})();
+</script>
+
+<h2 id="Jump-discontinuity"><a href="#Jump-discontinuity" class="headerlink" title="Jump discontinuity"></a>Jump discontinuity</h2><p>$$<br>g(x)&#x3D;\begin{cases}<br>-1, &amp; x &lt; 0 \\<br>1, &amp; x \ge 0<br>\end{cases}<br>$$</p>
+<p>The left-hand limit at 0 is -1 and the right-hand limit is 1. Since the<br>one-sided limits are unequal, the two-sided limit does not exist.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x_left = np.linspace(-<span class="number">2</span>, -<span class="number">0.01</span>, <span class="number">200</span>)</span><br><span class="line">x_right = np.linspace(<span class="number">0.01</span>, <span class="number">2</span>, <span class="number">200</span>)</span><br><span class="line"></span><br><span class="line">plt.plot(x_left, -np.ones_like(x_left), label=<span class="string">&quot;x &lt; 0&quot;</span>)</span><br><span class="line">plt.plot(x_right, np.ones_like(x_right), label=<span class="string">&quot;x &gt;= 0&quot;</span>)</span><br><span class="line">plt.scatter([<span class="number">0</span>], [<span class="number">1</span>], color=<span class="string">&quot;red&quot;</span>, s=<span class="number">40</span>)</span><br><span class="line">plt.scatter([<span class="number">0</span>], [-<span class="number">1</span>], facecolors=<span class="string">&quot;none&quot;</span>, edgecolors=<span class="string">&quot;red&quot;</span>, s=<span class="number">80</span>)</span><br><span class="line">plt.ylim(-<span class="number">2</span>, <span class="number">2</span>)</span><br><span class="line">plt.title(<span class="string">&quot;Jump Discontinuity at x=0&quot;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<div id="plot-jump" style="width:100%;height:420px;"></div>
+<script>
+(function () {
+  const xLeft = [];
+  const yLeft = [];
+  const xRight = [];
+  const yRight = [];
+  for (let i = 0; i <= 100; i++) {
+    const v = -2 + i * (1.99 / 100);
+    xLeft.push(v); yLeft.push(-1);
+  }
+  for (let i = 0; i <= 100; i++) {
+    const v = 0.01 + i * (1.99 / 100);
+    xRight.push(v); yRight.push(1);
+  }
+  const left = { x: xLeft, y: yLeft, mode: "lines", name: "x < 0" };
+  const right = { x: xRight, y: yRight, mode: "lines", name: "x >= 0" };
+  const openDot = {
+    x: [0], y: [-1], mode: "markers",
+    marker: { size: 10, color: "red", symbol: "circle-open" },
+    name: "left limit"
+  };
+  const closedDot = {
+    x: [0], y: [1], mode: "markers",
+    marker: { size: 8, color: "red" },
+    name: "value at 0"
+  };
+  const layout = {
+    title: "Jump Discontinuity",
+    xaxis: { title: "x" },
+    yaxis: { title: "g(x)", range: [-2, 2] },
+    margin: { t: 40, r: 10, b: 40, l: 50 }
+  };
+  Plotly.newPlot("plot-jump", [left, right, openDot, closedDot], layout, {displayModeBar: false});
+})();
+</script>
+
+<h2 id="Vertical-asymptotes"><a href="#Vertical-asymptotes" class="headerlink" title="Vertical asymptotes"></a>Vertical asymptotes</h2><p>When f(x) diverges without bound near a point, we write:</p>
+<p>$\lim_{x \to a} f(x) &#x3D; \infty$</p>
+<p>For $f(x) &#x3D; 1&#x2F;(x - 2)$, the function diverges to $\pm\infty$ near x &#x3D; 2, with<br>the sign determined by the direction of approach.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x1 = np.linspace(<span class="number">0.5</span>, <span class="number">1.9</span>, <span class="number">200</span>)</span><br><span class="line">x2 = np.linspace(<span class="number">2.1</span>, <span class="number">3.5</span>, <span class="number">200</span>)</span><br><span class="line"></span><br><span class="line">plt.plot(x1, <span class="number">1</span>/(x1-<span class="number">2</span>), label=<span class="string">&quot;x &lt; 2&quot;</span>)</span><br><span class="line">plt.plot(x2, <span class="number">1</span>/(x2-<span class="number">2</span>), label=<span class="string">&quot;x &gt; 2&quot;</span>)</span><br><span class="line">plt.axvline(<span class="number">2</span>, color=<span class="string">&quot;gray&quot;</span>, linestyle=<span class="string">&quot;--&quot;</span>)</span><br><span class="line">plt.ylim(-<span class="number">10</span>, <span class="number">10</span>)</span><br><span class="line">plt.title(<span class="string">&quot;Vertical Asymptote at x=2&quot;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<h2 id="Squeeze-theorem"><a href="#Squeeze-theorem" class="headerlink" title="Squeeze theorem"></a>Squeeze theorem</h2><p>If $h(x) \le f(x) \le k(x)$ near a, and $\lim_{x \to a} h(x) &#x3D; \lim_{x \to a} k(x) &#x3D; L$,<br>then $\lim_{x \to a} f(x) &#x3D; L$.</p>
+<p>A standard application is $\lim_{x \to 0} \sin(x)&#x2F;x &#x3D; 1$, established via the<br>bounds $\cos(x) \le \sin(x)&#x2F;x \le 1$ for $x$ near 0. Both bounds converge to 1,<br>so $\sin(x)&#x2F;x$ is squeezed to 1 as well.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"></span><br><span class="line">x = np.linspace(-<span class="number">1.5</span>, <span class="number">1.5</span>, <span class="number">400</span>)</span><br><span class="line">x = x[np.<span class="built_in">abs</span>(x) &gt; <span class="number">1e-6</span>]</span><br><span class="line"></span><br><span class="line">plt.plot(x, np.sin(x)/x, label=<span class="string">&quot;sin(x)/x&quot;</span>, color=<span class="string">&quot;steelblue&quot;</span>)</span><br><span class="line">plt.plot(x, np.cos(x),   label=<span class="string">&quot;cos(x)  — lower bound&quot;</span>, color=<span class="string">&quot;tomato&quot;</span>,   linestyle=<span class="string">&quot;--&quot;</span>)</span><br><span class="line">plt.plot(x, np.ones_like(x), label=<span class="string">&quot;1  — upper bound&quot;</span>, color=<span class="string">&quot;seagreen&quot;</span>, linestyle=<span class="string">&quot;--&quot;</span>)</span><br><span class="line">plt.ylim(<span class="number">0.5</span>, <span class="number">1.1</span>)</span><br><span class="line">plt.title(<span class="string">&quot;Squeeze Theorem: cos(x) ≤ sin(x)/x ≤ 1&quot;</span>)</span><br><span class="line">plt.legend()</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<div id="plot-squeeze" style="width:100%;height:420px;"></div>
+<script>
+(function () {
+  const x = [], sinc = [], cosx = [], upper = [];
+  for (let i = 0; i <= 400; i++) {
+    const v = -1.5 + i * (3.0 / 400);
+    if (Math.abs(v) < 1e-6) continue;
+    x.push(v);
+    sinc.push(Math.sin(v) / v);
+    cosx.push(Math.cos(v));
+    upper.push(1);
+  }
+  const traceSinc  = { x, y: sinc,  mode: "lines", name: "sin(x)/x",          line: { color: "steelblue", width: 2 } };
+  const traceCos   = { x, y: cosx,  mode: "lines", name: "cos(x) — lower bound", line: { color: "tomato",    width: 2, dash: "dash" } };
+  const traceUpper = { x, y: upper, mode: "lines", name: "1 — upper bound",    line: { color: "seagreen",  width: 2, dash: "dash" } };
+  const layout = {
+    title: "Squeeze Theorem: cos(x) \u2264 sin(x)/x \u2264 1",
+    xaxis: { title: "x" },
+    yaxis: { title: "f(x)", range: [0.5, 1.1] },
+    margin: { t: 40, r: 10, b: 40, l: 50 }
+  };
+  Plotly.newPlot("plot-squeeze", [traceCos, traceSinc, traceUpper], layout, {displayModeBar: false});
+})();
+</script>
+
+<h2 id="Intermediate-Value-Theorem"><a href="#Intermediate-Value-Theorem" class="headerlink" title="Intermediate Value Theorem"></a>Intermediate Value Theorem</h2><p>If f is continuous on $[a, b]$ and N lies strictly between f(a) and f(b), then<br>there exists $c \in (a, b)$ such that $f(c) &#x3D; N$.</p>
+<p>Continuous functions cannot skip over intermediate values. This is the<br>theoretical basis for bisection and related root-finding algorithms.</p>
+<h2 id="Common-errors"><a href="#Common-errors" class="headerlink" title="Common errors"></a>Common errors</h2><ul>
+<li>Cancelling a factor without verifying it is nonzero at the limit point</li>
+<li>Assuming $\lim_{x \to a} f(x) &#x3D; f(a)$ without establishing continuity</li>
+<li>Overlooking one-sided limits in piecewise-defined functions</li>
+<li>Assuming a function must be defined at a point for the limit to exist there</li>
+</ul>
+<h2 id="Epsilon-delta-proof"><a href="#Epsilon-delta-proof" class="headerlink" title="Epsilon-delta proof"></a>Epsilon-delta proof</h2><p><strong>Claim:</strong> $\lim_{x \to 2} (3x - 1) &#x3D; 5$</p>
+<p><strong>Definition:</strong> for every $\varepsilon &gt; 0$, there must exist $\delta &gt; 0$ such<br>that $0 &lt; |x - 2| &lt; \delta$ implies $|(3x - 1) - 5| &lt; \varepsilon$.</p>
+<p><strong>Bound the expression:</strong></p>
+<p>$|(3x - 1) - 5| &#x3D; |3x - 6| &#x3D; 3|x - 2|$</p>
+<p><strong>Choice of $\delta$:</strong> the condition $3|x - 2| &lt; \varepsilon$ is satisfied<br>when $|x - 2| &lt; \varepsilon&#x2F;3$.</p>
+<p><strong>Conclusion:</strong> set $\delta &#x3D; \varepsilon&#x2F;3$. Then:</p>
+<p>$|(3x - 1) - 5| &#x3D; 3|x - 2| &lt; 3 \cdot \frac{\varepsilon}{3} &#x3D; \varepsilon \qquad \square$</p>
+<h2 id="Worked-examples"><a href="#Worked-examples" class="headerlink" title="Worked examples"></a>Worked examples</h2><p><strong>Example 1:</strong> $\lim_{x \to 3} (x^2 - 9)&#x2F;(x - 3)$</p>
+<p>Factor: $x^2 - 9 &#x3D; (x - 3)(x + 3)$.<br>For $x \ne 3$, cancel the common factor: $\lim_{x \to 3} (x + 3) &#x3D; 6$.</p>
+<p><strong>Example 2:</strong> $\lim_{x \to 0} (\sqrt{x + 4} - 2) &#x2F; x$</p>
+<p>Multiply numerator and denominator by $\sqrt{x + 4} + 2$:</p>
+<p>$$<br>\frac{\sqrt{x + 4} - 2}{x} \cdot \frac{\sqrt{x + 4} + 2}{\sqrt{x + 4} + 2}<br>$$</p>
+<p>The numerator simplifies to $(x + 4) - 4 &#x3D; x$. Cancelling x:</p>
+<p>$\lim_{x \to 0} \frac{1}{\sqrt{x + 4} + 2} &#x3D; \frac{1}{4}$</p>
+<p><strong>Example 3:</strong> piecewise function</p>
+<p>$$<br>f(x)&#x3D;\begin{cases}<br>x^2, &amp; x &lt; 1 \\<br>2x + 1, &amp; x \ge 1<br>\end{cases}<br>$$</p>
+<p>Left-hand limit: $\lim_{x \to 1^-} x^2 &#x3D; 1$</p>
+<p>Right-hand limit: $\lim_{x \to 1^+} (2x + 1) &#x3D; 3$</p>
+<p>Since the one-sided limits are unequal, the two-sided limit at x &#x3D; 1 does not exist.</p>
+<p><strong>Example 4:</strong> $\lim_{x \to 0} 1&#x2F;x^2$</p>
+<p>From both sides, $1&#x2F;x^2$ diverges. The limit is $\infty$, and x &#x3D; 0 is a<br>vertical asymptote.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/03/10/Limits-and-Continuity-Fundamentals/" data-id="cuidGWtlPEpJM4qlJYbuWTcQE" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Calculus/" rel="tag">Calculus</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Continuity/" rel="tag">Continuity</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Limits/" rel="tag">Limits</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Time-Series-Prediction" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/11/Time-Series-Prediction/" class="article-date">
+  <time datetime="2020-06-11T12:45:35.000Z" itemprop="datePublished">2020-06-11</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/06/11/Time-Series-Prediction/">Time series prediction using neural networks</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Tensorflow is used to predict future time series values.</p>
+<h2 id="Input-data"><a href="#Input-data" class="headerlink" title="Input data"></a>Input data</h2><p>Input data is acquired via the MT5 terminal.</p>
+<h2 id="Imports"><a href="#Imports" class="headerlink" title="Imports"></a>Imports</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, division, print_function, unicode_literals</span><br><span class="line"><span class="keyword">import</span> warnings</span><br><span class="line">warnings.filterwarnings(<span class="string">&quot;ignore&quot;</span>)</span><br><span class="line"><span class="keyword">import</span> pathlib</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> seaborn <span class="keyword">as</span> sns</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow <span class="keyword">import</span> keras</span><br><span class="line"><span class="keyword">from</span> tensorflow.keras <span class="keyword">import</span> layers</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Tensorflow Version : &quot;</span> + tf.__version__)</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Python Version : &quot;</span> + sys.version)</span><br><span class="line"><span class="keyword">from</span> tensorflow.python.client <span class="keyword">import</span> device_lib</span><br><span class="line"><span class="built_in">print</span>(device_lib.list_local_devices())</span><br><span class="line"><span class="keyword">from</span> sklearn <span class="keyword">import</span> preprocessing</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> numpy.random <span class="keyword">import</span> seed</span><br><span class="line"><span class="keyword">import</span> winsound</span><br><span class="line"><span class="keyword">import</span> os</span><br></pre></td></tr></table></figure>
+
+<h2 id="AI-Model-Save"><a href="#AI-Model-Save" class="headerlink" title="AI Model Save"></a>AI Model Save</h2><p>These variables allow for the AI model to be saved.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">checkpoint_path = <span class="string">&quot;C:\\Users\\41507\\AppData\\Roaming\\MetaQuotes\\Terminal\\158904DFD898D640E9B813D10F9EB397\\MQL5\\Files\\ModelClose\\EURUSD\\modelClose.ckpt&quot;</span></span><br><span class="line">checkpoint_dir = os.path.dirname(checkpoint_path)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Data-Import"><a href="#Data-Import" class="headerlink" title="Data Import"></a>Data Import</h2><p>Import the data from csv.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">&#x27;C:\\Users\\41507\\AppData\\Roaming\\MetaQuotes\\Terminal\\158904DFD898D640E9B813D10F9EB397\\MQL5\\Files\\EUR_USD_Test_H1.csv&#x27;</span>, header=<span class="number">0</span>, delimiter=<span class="string">r&quot;\s+&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Data-Shape"><a href="#Data-Shape" class="headerlink" title="Data Shape"></a>Data Shape</h2><p>Look at the shape of the data.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(df.shape)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Clean-Data"><a href="#Clean-Data" class="headerlink" title="Clean Data"></a>Clean Data</h2><p>Clean the data and create columns for looking back.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">df.columns = df.columns.<span class="built_in">str</span>.replace(<span class="string">&quot;&lt;&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line">df.columns = df.columns.<span class="built_in">str</span>.replace(<span class="string">&quot;&gt;&quot;</span>, <span class="string">&quot;&quot;</span>)</span><br><span class="line"><span class="comment"># Extract date features</span></span><br><span class="line">df[<span class="string">&#x27;DATE&#x27;</span>] = df[<span class="string">&#x27;DATE&#x27;</span>].astype(<span class="string">&#x27;datetime64[ns]&#x27;</span>)</span><br><span class="line">df[<span class="string">&#x27;day_of_year&#x27;</span>] = df[<span class="string">&#x27;DATE&#x27;</span>].dt.dayofyear</span><br><span class="line">df[<span class="string">&#x27;year&#x27;</span>] = df[<span class="string">&#x27;DATE&#x27;</span>].dt.year</span><br><span class="line"></span><br><span class="line"><span class="comment">#Save Date in another dataframe for later use and then delete</span></span><br><span class="line">dfDate = pd.DataFrame(df, columns=[<span class="string">&#x27;DATE&#x27;</span>, <span class="string">&#x27;TIME&#x27;</span>])</span><br><span class="line"><span class="keyword">del</span> df[<span class="string">&#x27;DATE&#x27;</span>]</span><br><span class="line"></span><br><span class="line">df[<span class="string">&#x27;TIME&#x27;</span>] = df[<span class="string">&#x27;TIME&#x27;</span>].astype(<span class="string">&#x27;datetime64[ns]&#x27;</span>)</span><br><span class="line">df[<span class="string">&#x27;hour_of_day&#x27;</span>] = df[<span class="string">&#x27;TIME&#x27;</span>].dt.hour</span><br><span class="line"></span><br><span class="line"><span class="comment">#Save Time in another dataframe for later use and then delete</span></span><br><span class="line">dfTime = pd.DataFrame(df, columns=[<span class="string">&#x27;TIME&#x27;</span>])</span><br><span class="line"><span class="keyword">del</span> df[<span class="string">&#x27;TIME&#x27;</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># Add column minmaxdiff</span></span><br><span class="line"><span class="comment">#df[&#x27;score_diff&#x27;] = df[&#x27;HIGH&#x27;].sub(df[&#x27;LOW&#x27;], axis = 0)</span></span><br><span class="line"><span class="comment">#df[&#x27;min_max_next&#x27;] = (df[&#x27;HIGH&#x27;]+df[&#x27;LOW&#x27;])/2</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Add columns for previous candles</span></span><br><span class="line">df[<span class="string">&#x27;OPEN1&#x27;</span>] = df[<span class="string">&#x27;OPEN&#x27;</span>].shift(<span class="number">1</span>)</span><br><span class="line">df[<span class="string">&#x27;HIGH1&#x27;</span>] = df[<span class="string">&#x27;HIGH&#x27;</span>].shift(<span class="number">1</span>)</span><br><span class="line">df[<span class="string">&#x27;LOW1&#x27;</span>] = df[<span class="string">&#x27;LOW&#x27;</span>].shift(<span class="number">1</span>)</span><br><span class="line">df[<span class="string">&#x27;CLOSE1&#x27;</span>] = df[<span class="string">&#x27;CLOSE&#x27;</span>].shift(<span class="number">1</span>)</span><br><span class="line">df[<span class="string">&#x27;OPEN2&#x27;</span>] = df[<span class="string">&#x27;OPEN&#x27;</span>].shift(<span class="number">2</span>)</span><br><span class="line">df[<span class="string">&#x27;HIGH2&#x27;</span>] = df[<span class="string">&#x27;HIGH&#x27;</span>].shift(<span class="number">2</span>)</span><br><span class="line">df[<span class="string">&#x27;LOW2&#x27;</span>] = df[<span class="string">&#x27;LOW&#x27;</span>].shift(<span class="number">2</span>)</span><br><span class="line">df[<span class="string">&#x27;CLOSE2&#x27;</span>] = df[<span class="string">&#x27;CLOSE&#x27;</span>].shift(<span class="number">2</span>)</span><br><span class="line">df[<span class="string">&#x27;OPEN3&#x27;</span>] = df[<span class="string">&#x27;OPEN&#x27;</span>].shift(<span class="number">3</span>)</span><br><span class="line">df[<span class="string">&#x27;HIGH3&#x27;</span>] = df[<span class="string">&#x27;HIGH&#x27;</span>].shift(<span class="number">3</span>)</span><br><span class="line">df[<span class="string">&#x27;LOW3&#x27;</span>] = df[<span class="string">&#x27;LOW&#x27;</span>].shift(<span class="number">3</span>)</span><br><span class="line">df[<span class="string">&#x27;CLOSE3&#x27;</span>] = df[<span class="string">&#x27;CLOSE&#x27;</span>].shift(<span class="number">3</span>)</span><br><span class="line">df[<span class="string">&#x27;OPEN4&#x27;</span>] = df[<span class="string">&#x27;OPEN&#x27;</span>].shift(<span class="number">4</span>)</span><br><span class="line">df[<span class="string">&#x27;HIGH4&#x27;</span>] = df[<span class="string">&#x27;HIGH&#x27;</span>].shift(<span class="number">4</span>)</span><br><span class="line">df[<span class="string">&#x27;LOW4&#x27;</span>] = df[<span class="string">&#x27;LOW&#x27;</span>].shift(<span class="number">4</span>)</span><br><span class="line">df[<span class="string">&#x27;CLOSE4&#x27;</span>] = df[<span class="string">&#x27;CLOSE&#x27;</span>].shift(<span class="number">4</span>)</span><br><span class="line">df[<span class="string">&#x27;OPEN5&#x27;</span>] = df[<span class="string">&#x27;OPEN&#x27;</span>].shift(<span class="number">5</span>)</span><br><span class="line">df[<span class="string">&#x27;HIGH5&#x27;</span>] = df[<span class="string">&#x27;HIGH&#x27;</span>].shift(<span class="number">5</span>)</span><br><span class="line">df[<span class="string">&#x27;LOW5&#x27;</span>] = df[<span class="string">&#x27;LOW&#x27;</span>].shift(<span class="number">5</span>)</span><br><span class="line">df[<span class="string">&#x27;CLOSE5&#x27;</span>] = df[<span class="string">&#x27;CLOSE&#x27;</span>].shift(<span class="number">6</span>)</span><br><span class="line">df[<span class="string">&#x27;OPEN6&#x27;</span>] = df[<span class="string">&#x27;OPEN&#x27;</span>].shift(<span class="number">6</span>)</span><br><span class="line">df[<span class="string">&#x27;HIGH6&#x27;</span>] = df[<span class="string">&#x27;HIGH&#x27;</span>].shift(<span class="number">6</span>)</span><br><span class="line">df[<span class="string">&#x27;LOW6&#x27;</span>] = df[<span class="string">&#x27;LOW&#x27;</span>].shift(<span class="number">6</span>)</span><br><span class="line">df[<span class="string">&#x27;CLOSE6&#x27;</span>] = df[<span class="string">&#x27;CLOSE&#x27;</span>].shift(<span class="number">6</span>)</span><br><span class="line">df[<span class="string">&#x27;OPEN7&#x27;</span>] = df[<span class="string">&#x27;OPEN&#x27;</span>].shift(<span class="number">7</span>)</span><br><span class="line">df[<span class="string">&#x27;HIGH7&#x27;</span>] = df[<span class="string">&#x27;HIGH&#x27;</span>].shift(<span class="number">7</span>)</span><br><span class="line">df[<span class="string">&#x27;LOW7&#x27;</span>] = df[<span class="string">&#x27;LOW&#x27;</span>].shift(<span class="number">7</span>)</span><br><span class="line">df[<span class="string">&#x27;CLOSE7&#x27;</span>] = df[<span class="string">&#x27;CLOSE&#x27;</span>].shift(<span class="number">7</span>)</span><br><span class="line">df[<span class="string">&#x27;OPEN8&#x27;</span>] = df[<span class="string">&#x27;OPEN&#x27;</span>].shift(<span class="number">8</span>)</span><br><span class="line">df[<span class="string">&#x27;HIGH8&#x27;</span>] = df[<span class="string">&#x27;HIGH&#x27;</span>].shift(<span class="number">8</span>)</span><br><span class="line">df[<span class="string">&#x27;LOW8&#x27;</span>] = df[<span class="string">&#x27;LOW&#x27;</span>].shift(<span class="number">8</span>)</span><br><span class="line">df[<span class="string">&#x27;CLOSE8&#x27;</span>] = df[<span class="string">&#x27;CLOSE&#x27;</span>].shift(<span class="number">8</span>)</span><br><span class="line">df[<span class="string">&#x27;OPEN9&#x27;</span>] = df[<span class="string">&#x27;OPEN&#x27;</span>].shift(<span class="number">9</span>)</span><br><span class="line">df[<span class="string">&#x27;HIGH9&#x27;</span>] = df[<span class="string">&#x27;HIGH&#x27;</span>].shift(<span class="number">9</span>)</span><br><span class="line">df[<span class="string">&#x27;LOW9&#x27;</span>] = df[<span class="string">&#x27;LOW&#x27;</span>].shift(<span class="number">9</span>)</span><br><span class="line">df[<span class="string">&#x27;CLOSE9&#x27;</span>] = df[<span class="string">&#x27;CLOSE&#x27;</span>].shift(<span class="number">9</span>)</span><br><span class="line">df.fillna(<span class="number">0</span>, inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Add-Label"><a href="#Add-Label" class="headerlink" title="Add Label"></a>Add Label</h2><p>This is the value that will be predicted. The value is the close price of the next bar.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">step = -<span class="number">1</span></span><br><span class="line">df[<span class="string">&#x27;prediction_output&#x27;</span>] = df[<span class="string">&#x27;CLOSE&#x27;</span>].shift(step)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Split-the-data-into-train-and-test"><a href="#Split-the-data-into-train-and-test" class="headerlink" title="Split the data into train and test"></a>Split the data into train and test</h2><p>80% of the data will be used for training and 20% will be used for testing.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">n = <span class="number">80</span></span><br><span class="line">train_dataset = df.head(<span class="built_in">int</span>(<span class="built_in">len</span>(df)*(n/<span class="number">100</span>)))</span><br><span class="line">test_dataset = df.drop(train_dataset.index)</span><br><span class="line">dfDate = dfDate.drop(train_dataset.index)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Split-features-from-labels"><a href="#Split-features-from-labels" class="headerlink" title="Split features from labels"></a>Split features from labels</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">train_labels = train_dataset.pop(<span class="string">&#x27;prediction_output&#x27;</span>)</span><br><span class="line">test_labels = test_dataset.pop(<span class="string">&#x27;prediction_output&#x27;</span>)</span><br><span class="line"><span class="comment"># Compare the shapes</span></span><br><span class="line"><span class="built_in">print</span>(train_labels.shape)</span><br><span class="line"><span class="built_in">print</span>(test_labels.shape)</span><br></pre></td></tr></table></figure>
+
+<h2 id="Normalize-the-data"><a href="#Normalize-the-data" class="headerlink" title="Normalize the data"></a>Normalize the data</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">norm</span>(<span class="params">x</span>):</span><br><span class="line">  <span class="keyword">return</span> (x - train_stats[<span class="string">&#x27;mean&#x27;</span>]) / train_stats[<span class="string">&#x27;std&#x27;</span>]</span><br><span class="line">normed_train_data = norm(train_dataset)</span><br><span class="line"><span class="keyword">del</span> normed_train_data[<span class="string">&#x27;prediction_output&#x27;</span>]</span><br><span class="line">normed_test_data = norm(test_dataset)</span><br><span class="line"><span class="keyword">del</span> normed_test_data[<span class="string">&#x27;prediction_output&#x27;</span>]</span><br></pre></td></tr></table></figure>
+
+<h2 id="Build-the-model"><a href="#Build-the-model" class="headerlink" title="Build the model"></a>Build the model</h2><p>The model has 5 layers and a learning rate of 0.003.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">build_model</span>():</span><br><span class="line">  model = keras.Sequential([</span><br><span class="line">    layers.Dense(<span class="number">64</span>, activation=tf.nn.relu, input_shape=[<span class="built_in">len</span>(normed_train_data.keys())]),</span><br><span class="line">    layers.Dense(<span class="number">128</span>, activation=tf.nn.relu),</span><br><span class="line">    layers.Dense(<span class="number">128</span>, activation=tf.nn.relu),</span><br><span class="line">    layers.Dense(<span class="number">64</span>, activation=tf.nn.relu),</span><br><span class="line">    layers.Dense(<span class="number">1</span>)</span><br><span class="line">  ])</span><br><span class="line"></span><br><span class="line">  optimizer = tf.keras.optimizers.RMSprop(learning_rate=<span class="number">0.003</span>, rho=<span class="number">0.9</span>)</span><br><span class="line"></span><br><span class="line">  model.<span class="built_in">compile</span>(loss=<span class="string">&#x27;mean_squared_error&#x27;</span>,</span><br><span class="line">                optimizer=optimizer,</span><br><span class="line">                metrics=[<span class="string">&#x27;mean_absolute_error&#x27;</span>, <span class="string">&#x27;mean_squared_error&#x27;</span>])</span><br><span class="line">  <span class="keyword">return</span> model</span><br></pre></td></tr></table></figure>
+
+<h2 id="Train-the-model"><a href="#Train-the-model" class="headerlink" title="Train the model"></a>Train the model</h2><p>The model training has 1000 epochs and a patience value of 100.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">model = build_model()</span><br><span class="line">model.summary()</span><br><span class="line"><span class="comment"># Display training progress by printing a single dot for each completed epoch</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">PrintDot</span>(keras.callbacks.Callback):</span><br><span class="line">  <span class="keyword">def</span> <span class="title function_">on_epoch_end</span>(<span class="params">self, epoch, logs</span>):</span><br><span class="line">    <span class="keyword">if</span> epoch % <span class="number">100</span> == <span class="number">0</span>: <span class="built_in">print</span>(<span class="string">&#x27;&#x27;</span>)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;.&#x27;</span>, end=<span class="string">&#x27;&#x27;</span>)</span><br><span class="line"></span><br><span class="line">EPOCHS = <span class="number">1000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># The patience parameter is the amount of epochs to check for improvement</span></span><br><span class="line">early_stop = keras.callbacks.EarlyStopping(monitor=<span class="string">&#x27;val_loss&#x27;</span>, patience=<span class="number">100</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create a callback that saves the model&#x27;s weights</span></span><br><span class="line">cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path,</span><br><span class="line">                                                 save_weights_only=<span class="literal">True</span>,</span><br><span class="line">                                                 verbose=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">history = model.fit(normed_train_data, train_labels, epochs=EPOCHS,</span><br><span class="line">                    validation_split = <span class="number">0.2</span>, verbose=<span class="number">0</span>, callbacks=[early_stop, PrintDot(), cp_callback])</span><br><span class="line">hist = pd.DataFrame(history.history)</span><br><span class="line">hist[<span class="string">&#x27;epoch&#x27;</span>] = history.epoch</span><br><span class="line">hist.tail()</span><br></pre></td></tr></table></figure>
+
+<h2 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">loss, mae, mse = model.evaluate(normed_test_data, test_labels, verbose=<span class="number">0</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Testing set Mean Abs Error: &#123;:6.4f&#125;&quot;</span>.<span class="built_in">format</span>(mae))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Testing set Mean Squared Error: &#123;:6.4f&#125;&quot;</span>.<span class="built_in">format</span>(mse))</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Testing set Mean Abs Error: 0.0011</span><br><span class="line">Testing set Mean Squared Error: 0.0002</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># plot calculated metrics</span></span><br><span class="line">plt.plot(history.history[<span class="string">&#x27;mean_squared_error&#x27;</span>])</span><br><span class="line">plt.plot(history.history[<span class="string">&#x27;mean_absolute_error&#x27;</span>])</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/forex-prediction-results.png" alt="forex-prediction-results"></p>
+<p>The model can predict the closing price of the next bar with a MAE(mean absolute error) of 11 pips.<br>Cross validation will make the result more robust. A LSTM network would yield better results.</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/06/11/Time-Series-Prediction/" data-id="cllo1vep70002cryf1aa2883f" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Machine-Learning/" rel="tag">Machine Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Time-Series/" rel="tag">Time Series</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Edge-AI" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/06/Edge-AI/" class="article-date">
+  <time datetime="2020-02-06T09:40:09.000Z" itemprop="datePublished">2020-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/06/Edge-AI/">Edge AI</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>Edge AI</li>
+<li>Run pre-trained AI models on edge devices.</li>
+<li>In real time.</li>
+<li>Compatible with Raspberry PI and mobile phones.</li>
+<li>Not dependant on centralized server.</li>
+</ul>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/bKIzpNjLrzg" title="YouTube video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/02/06/Edge-AI/" data-id="cllo1vep40001cryfghp20707" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Computer-Vision/" rel="tag">Computer Vision</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Edge-A-I/" rel="tag">Edge A.I.</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tensorflow-Light/" rel="tag">Tensorflow Light</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/02/06/hello-world/" class="article-date">
+  <time datetime="2020-02-06T09:30:09.000Z" itemprop="datePublished">2020-02-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/02/06/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2020/02/06/hello-world/" data-id="cllo1vepb0004cryfhukebtzi" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Calculus/" rel="tag">Calculus</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Vision/" rel="tag">Computer Vision</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Continuity/" rel="tag">Continuity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Edge-A-I/" rel="tag">Edge A.I.</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Limits/" rel="tag">Limits</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/" rel="tag">Machine Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow-Light/" rel="tag">Tensorflow Light</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Time-Series/" rel="tag">Time Series</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Calculus/" style="font-size: 10px;">Calculus</a> <a href="/tags/Computer-Vision/" style="font-size: 10px;">Computer Vision</a> <a href="/tags/Continuity/" style="font-size: 10px;">Continuity</a> <a href="/tags/Edge-A-I/" style="font-size: 10px;">Edge A.I.</a> <a href="/tags/Limits/" style="font-size: 10px;">Limits</a> <a href="/tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Tensorflow/" style="font-size: 10px;">Tensorflow</a> <a href="/tags/Tensorflow-Light/" style="font-size: 10px;">Tensorflow Light</a> <a href="/tags/Time-Series/" style="font-size: 10px;">Time Series</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2026/03/">March 2026</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">February 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2026/03/10/Limits-and-Continuity-Fundamentals/">Limits and Continuity Fundamentals</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/11/Time-Series-Prediction/">Time series prediction using neural networks</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/06/Edge-AI/">Edge AI</a>
+          </li>
+        
+          <li>
+            <a href="/2020/02/06/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2026 Freek Nortier<br />
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+ 
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+ 
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+  
+<script src="/js/script.js"></script>
+
+
+<script src="/js/pixi.min.js"></script>
+ 
+
+
+  </div>
+</body>
+</html>
