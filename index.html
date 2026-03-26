@@ -91,6 +91,68 @@ ga('send', 'pageview');
       <div class="outer">
         <section id="main">
   
+    <article id="post-CNC-TAP-Visualizer" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2026/03/26/CNC-TAP-Visualizer/" class="article-date">
+  <time datetime="2026-03-26T10:00:00.000Z" itemprop="datePublished">2026-03-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2026/03/26/CNC-TAP-Visualizer/">CNC TAP File Visualizer</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>A browser-based visualizer for CNC <code>.tap</code> &#x2F; <code>.nc</code> &#x2F; <code>.gcode</code> files. Runs entirely offline — no server, no install. Drop a file in and watch the toolpath play back.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/freeknortier/cnc-tap-file-visualizer">View on GitHub</a></p>
+<h2 id="What-it-does"><a href="#What-it-does" class="headerlink" title="What it does"></a>What it does</h2><ul>
+<li>Parses G0&#x2F;G1 3-axis milling and G81 drill cycles</li>
+<li>Animates the toolpath with adjustable playback speed (0.05 pt&#x2F;s up to 5k pt&#x2F;s)</li>
+<li>Three views: Top (XY), Side (XZ), and a full 3D orbit view via Three.js</li>
+<li>Colour-codes moves by depth — shallow cuts in cyan, deep cuts in orange, rapids in yellow</li>
+<li>Builds a carved mesh from the toolpath so you can preview what the stock will look like after machining</li>
+<li>Multi-file support with per-file colour assignment</li>
+<li>Shows live X&#x2F;Y&#x2F;Z position, feed rate, spindle state, and ETA during playback</li>
+</ul>
+<h2 id="3D-view"><a href="#3D-view" class="headerlink" title="3D view"></a>3D view</h2><p><img src="/images/cnc-tap-1.png" alt="CNC TAP Visualizer - 3D view"></p>
+<p>The 3D view renders the full toolpath as line segments with depth-mapped colouring. Left-drag rotates, scroll zooms, right-drag pans.</p>
+<h2 id="Carved-model"><a href="#Carved-model" class="headerlink" title="Carved model"></a>Carved model</h2><p><img src="/images/cnc-tap-2.png" alt="CNC TAP Visualizer - carved mesh detail"></p>
+<p>The carved model is built by walking every toolpath segment and recording the minimum Z reached at each grid cell (120×120). The result is a height-mapped mesh showing which areas have been cut and how deep. Useful for catching missed regions or checking depth consistency before running the job.</p>
+<h2 id="G-code-support"><a href="#G-code-support" class="headerlink" title="G-code support"></a>G-code support</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">G0  — rapid positioning</span><br><span class="line">G1  — linear feed move</span><br><span class="line">G81 — canned drill cycle (with R-plane retract)</span><br><span class="line">G80 — cancel canned cycle</span><br><span class="line">G20 / G21 — inch / mm units</span><br><span class="line">S   — spindle speed</span><br><span class="line">T   — tool number</span><br><span class="line">F   — feed rate</span><br></pre></td></tr></table></figure>
+
+<h2 id="Implementation-notes"><a href="#Implementation-notes" class="headerlink" title="Implementation notes"></a>Implementation notes</h2><ul>
+<li>No build step. Single HTML file with an inline <code>&lt;script&gt;</code> block.</li>
+<li>Three.js loaded from CDN (r128). Everything else is vanilla JS.</li>
+<li>Large files (&gt;80k points) are downsampled while preserving rapids, Z-direction changes, and the first point after every rapid. A 600k-point finishing file samples down to ~80k without losing the toolpath shape.</li>
+<li>The carved mesh walks segments using a Bresenham-style interpolation so long roughing strips fill every grid cell between endpoints, not just their start and end.</li>
+<li>Speed slider uses a log scale: slider position 1–1000 maps to 0.05–5000 pt&#x2F;s.</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2026/03/26/CNC-TAP-Visualizer/" data-id="cuid6AJnDENoMWR6vO6mcDMFX" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CAM/" rel="tag">CAM</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CNC/" rel="tag">CNC</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/G-code/" rel="tag">G-code</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Three-js/" rel="tag">Three.js</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Limits-and-Continuity-Fundamentals" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2026/03/10/Limits-and-Continuity-Fundamentals/" class="article-date">
@@ -518,7 +580,7 @@ window.MathJax = {
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Calculus/" rel="tag">Calculus</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Vision/" rel="tag">Computer Vision</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Continuity/" rel="tag">Continuity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Edge-A-I/" rel="tag">Edge A.I.</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Limits/" rel="tag">Limits</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/" rel="tag">Machine Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow-Light/" rel="tag">Tensorflow Light</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Time-Series/" rel="tag">Time Series</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Android/" rel="tag">Android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CAM/" rel="tag">CAM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CNC/" rel="tag">CNC</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Calculus/" rel="tag">Calculus</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Computer-Vision/" rel="tag">Computer Vision</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Continuity/" rel="tag">Continuity</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Edge-A-I/" rel="tag">Edge A.I.</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/G-code/" rel="tag">G-code</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Limits/" rel="tag">Limits</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Machine-Learning/" rel="tag">Machine Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow-Light/" rel="tag">Tensorflow Light</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Three-js/" rel="tag">Three.js</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Time-Series/" rel="tag">Time Series</a></li></ul>
     </div>
   </div>
 
@@ -528,7 +590,7 @@ window.MathJax = {
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/Calculus/" style="font-size: 10px;">Calculus</a> <a href="/tags/Computer-Vision/" style="font-size: 10px;">Computer Vision</a> <a href="/tags/Continuity/" style="font-size: 10px;">Continuity</a> <a href="/tags/Edge-A-I/" style="font-size: 10px;">Edge A.I.</a> <a href="/tags/Limits/" style="font-size: 10px;">Limits</a> <a href="/tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Tensorflow/" style="font-size: 10px;">Tensorflow</a> <a href="/tags/Tensorflow-Light/" style="font-size: 10px;">Tensorflow Light</a> <a href="/tags/Time-Series/" style="font-size: 10px;">Time Series</a>
+      <a href="/tags/Android/" style="font-size: 10px;">Android</a> <a href="/tags/CAM/" style="font-size: 10px;">CAM</a> <a href="/tags/CNC/" style="font-size: 10px;">CNC</a> <a href="/tags/Calculus/" style="font-size: 10px;">Calculus</a> <a href="/tags/Computer-Vision/" style="font-size: 10px;">Computer Vision</a> <a href="/tags/Continuity/" style="font-size: 10px;">Continuity</a> <a href="/tags/Edge-A-I/" style="font-size: 10px;">Edge A.I.</a> <a href="/tags/G-code/" style="font-size: 10px;">G-code</a> <a href="/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/tags/Limits/" style="font-size: 10px;">Limits</a> <a href="/tags/Machine-Learning/" style="font-size: 10px;">Machine Learning</a> <a href="/tags/Python/" style="font-size: 10px;">Python</a> <a href="/tags/Tensorflow/" style="font-size: 10px;">Tensorflow</a> <a href="/tags/Tensorflow-Light/" style="font-size: 10px;">Tensorflow Light</a> <a href="/tags/Three-js/" style="font-size: 10px;">Three.js</a> <a href="/tags/Time-Series/" style="font-size: 10px;">Time Series</a>
     </div>
   </div>
 
@@ -548,6 +610,10 @@ window.MathJax = {
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2026/03/26/CNC-TAP-Visualizer/">CNC TAP File Visualizer</a>
+          </li>
         
           <li>
             <a href="/2026/03/10/Limits-and-Continuity-Fundamentals/">Limits and Continuity Fundamentals</a>
